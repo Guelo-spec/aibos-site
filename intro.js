@@ -14,7 +14,7 @@
   try { if (sessionStorage.getItem('aibos_intro_seen')) return; } catch (e) { return; }
 
   var BG = '#FAFAF8', INK = '#1A1815', GREEN = '#10A862', HINT = '#84827A';
-  var GRID = 5, PER = 16, BURST_S = 1.5, FUSE0 = 1.55, FUSE1 = 2.3, AUTO_MS = 3000;
+  var GRID = 5, PER = 16, BURST_S = 1.5, FUSE0 = 1.55, FUSE1 = 2.3;
 
   var overlay = document.createElement('div');
   overlay.id = 'aibos-intro';
@@ -186,12 +186,11 @@
   function loop(ts) {
     if (finished) return;
     if (state === 'idle') {
-      if (!idle0) idle0 = ts;
       drawIdle(ts);
-      var waited = ts - idle0;
-      if (waited > AUTO_MS || pendingStart) {
+      if (pendingStart) {
+        if (!idle0) idle0 = ts;
         if (ready()) start();
-        else if (waited > AUTO_MS + 7000) { finish(); return; }
+        else if (ts - idle0 > 7000) { finish(); return; }
       }
     } else if (state === 'anim') {
       if (!t0) t0 = ts;
