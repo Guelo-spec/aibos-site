@@ -2,7 +2,7 @@
 const { Logo, Button, Badge, Stat, Card, PixelMark } = window.AIBOSDesignSystem_087750;
 
 const MAXW = 1080;
-const BOOK_HREF = 'mailto:mlcamero131@gmail.com?subject=AIBOS%20walkthrough';
+const BOOK_HREF = 'mailto:mlcamero131@gmail.com?subject=AIBOS%20quote%20request';
 
 function Nav() {
   return (
@@ -15,7 +15,7 @@ function Nav() {
           ))}
         </nav>
         <div style={{ marginLeft: 'auto', display: 'flex', gap: 10, alignItems: 'center' }}>
-          <a href={BOOK_HREF} style={{ textDecoration: 'none' }}><Button size="sm">Book a walkthrough</Button></a>
+          <a href={BOOK_HREF} style={{ textDecoration: 'none' }}><Button size="sm">Request a quote</Button></a>
         </div>
       </div>
     </header>
@@ -39,7 +39,7 @@ function Hero() {
         </p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 30, flexWrap: 'wrap' }}>
           <a href="#agents" style={{ textDecoration: 'none' }}><Button size="lg">Meet the agents</Button></a>
-          <a href={BOOK_HREF} style={{ textDecoration: 'none' }}><Button size="lg" variant="secondary">Book a walkthrough</Button></a>
+          <a href={BOOK_HREF} style={{ textDecoration: 'none' }}><Button size="lg" variant="secondary">Request a quote</Button></a>
         </div>
         <div style={{ marginTop: 18, fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--text-tertiary)', letterSpacing: '.04em' }}>
           NO PER-SEAT FEES · NO LOCK-IN · YOU OWN THE DATABASE
@@ -245,12 +245,12 @@ function CTA() {
   return (
     <section style={{ borderTop: '1px solid var(--border-subtle)', background: 'var(--surface-card)' }}>
       <div style={{ maxWidth: 720, margin: '0 auto', padding: '76px 24px', textAlign: 'center' }}>
-        <h2 style={{ fontSize: 'clamp(28px,4vw,40px)', fontWeight: 600, letterSpacing: '-0.02em' }}>See it run your shop for a day</h2>
+        <h2 style={{ fontSize: 'clamp(28px,4vw,40px)', fontWeight: 600, letterSpacing: '-0.02em' }}>Want one for your business?</h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-md)', marginTop: 14, lineHeight: 1.55 }}>
-          We set up a working AIBOS for your business — POS, operations, payroll, site — and let your Special Agent run a real day. If it doesn't earn its keep, you owe nothing.
+          Reach out and tell us about your business. We'll run a diagnosis of how you operate day-to-day — your tools, your staff, your bottlenecks — then send you a custom quote for your own Special Agent. No fixed price list, because no two businesses run the same.
         </p>
         <div style={{ marginTop: 28, display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a href={BOOK_HREF} style={{ textDecoration: 'none' }}><Button size="lg">Book a walkthrough</Button></a>
+          <a href={BOOK_HREF} style={{ textDecoration: 'none' }}><Button size="lg">Request a quote</Button></a>
           <a href="#agents" style={{ textDecoration: 'none' }}><Button size="lg" variant="ghost" iconRight={<Icon name="arrow-right" size={18} />}>See the agents again</Button></a>
         </div>
         <p style={{ marginTop: 18, fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--text-tertiary)', letterSpacing: '.03em' }}>
