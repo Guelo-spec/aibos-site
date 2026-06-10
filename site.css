@@ -1,0 +1,42 @@
+/* ============================================================
+   site.css — marketing-site responsive overrides.
+   The design-system components use inline styles, so these
+   media-query overrides need !important to win.
+   ============================================================ */
+
+/* Phones: hide anchor nav (logo + Book button remain), let the
+   hero badge wrap instead of forcing the page wider. */
+@media (max-width: 620px) {
+  .site-nav-links {
+    display: none !important;
+  }
+  .hero-badge {
+    white-space: normal !important;
+    height: auto !important;
+    padding: 5px 10px !important;
+    line-height: 1.4;
+    text-align: left;
+  }
+}
+
+/* Dashboard preview: drop the decorative sidebar, stack the
+   stat cards so the mono values don't overflow. */
+@media (max-width: 680px) {
+  .pv-sidebar {
+    display: none !important;
+  }
+  .pv-stats {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Agent cards: identity panel stacks above the activity feed. */
+@media (max-width: 860px) {
+  .agent-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .agent-identity {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+}

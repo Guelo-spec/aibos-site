@@ -9,7 +9,7 @@ function Nav() {
     <header style={{ position: 'sticky', top: 0, zIndex: 50, background: 'rgba(250,250,248,0.82)', backdropFilter: 'blur(10px)', borderBottom: '1px solid var(--border-subtle)' }}>
       <div style={{ maxWidth: MAXW, margin: '0 auto', height: 64, padding: '0 24px', display: 'flex', alignItems: 'center', gap: 28 }}>
         <Logo size={22} />
-        <nav style={{ display: 'flex', gap: 24, marginLeft: 16 }}>
+        <nav className="site-nav-links" style={{ display: 'flex', gap: 24, marginLeft: 16 }}>
           {[['Special Agents', '#agents'], ['How it works', '#how']].map(([l, href]) => (
             <a key={l} href={href} style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', fontWeight: 500 }}>{l}</a>
           ))}
@@ -28,8 +28,8 @@ function Hero() {
       {/* pixel-grid texture, very subtle */}
       <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(var(--gray-200) 1.2px, transparent 1.2px)', backgroundSize: '22px 22px', maskImage: 'linear-gradient(to bottom, black, transparent 70%)', WebkitMaskImage: 'linear-gradient(to bottom, black, transparent 70%)', opacity: 0.7 }} />
       <div style={{ position: 'relative', maxWidth: MAXW, margin: '0 auto', padding: '84px 24px 72px', textAlign: 'center' }}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 22 }}>
-          <Badge variant="neutral" dot>Special Agents — live in Metro Manila businesses today</Badge>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 22, maxWidth: '100%' }}>
+          <Badge className="hero-badge" variant="neutral" dot>Special Agents — live in Metro Manila businesses today</Badge>
         </div>
         <h1 style={{ fontSize: 'clamp(38px, 6vw, 68px)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.04 }}>
           Software you don't operate.<br />Staff you don't hire.
@@ -37,7 +37,7 @@ function Hero() {
         <p style={{ maxWidth: 600, margin: '22px auto 0', fontSize: 'var(--text-md)', color: 'var(--text-secondary)', lineHeight: 1.55 }}>
           AIBOS gives your business a Special Agent — one AI staffer that runs your POS, payroll, operations, and website on a custom system you own outright. Two are already on the job. Yours is next.
         </p>
-        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 30 }}>
+        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 30, flexWrap: 'wrap' }}>
           <a href="#agents" style={{ textDecoration: 'none' }}><Button size="lg">Meet the agents</Button></a>
           <a href={BOOK_HREF} style={{ textDecoration: 'none' }}><Button size="lg" variant="secondary">Book a walkthrough</Button></a>
         </div>
@@ -66,7 +66,7 @@ function ProductPreview() {
         </span>
       </div>
       <div style={{ display: 'flex', minHeight: 280 }}>
-        <div style={{ width: 150, background: 'var(--gray-950)', padding: 14 }}>
+        <div className="pv-sidebar" style={{ width: 150, background: 'var(--gray-950)', padding: 14 }}>
           <Logo size={16} tone="inverse" />
           <div style={{ marginTop: 18, display: 'flex', flexDirection: 'column', gap: 4 }}>
             {[['layout-dashboard', 'Overview', true], ['shopping-bag', 'POS', false], ['washing-machine', 'Operations', false], ['wallet', 'Payroll', false]].map(([ic, l, on]) => (
@@ -77,7 +77,7 @@ function ProductPreview() {
           </div>
         </div>
         <div style={{ flex: 1, padding: 18 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 12 }}>
+          <div className="pv-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 12 }}>
             {[['₱18,420', 'Revenue today'], ['47', 'Orders'], ['6 / 8', 'Machines']].map((s) => (
               <Card key={s[1]} padding="sm"><Stat size="sm" value={s[0]} label={s[1]} /></Card>
             ))}
@@ -129,9 +129,9 @@ const AGENTS = [
 function AgentRow({ a }) {
   return (
     <Card padding="none" style={{ overflow: 'hidden' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '312px 1fr' }}>
+      <div className="agent-grid" style={{ display: 'grid', gridTemplateColumns: '312px 1fr' }}>
         {/* Identity */}
-        <div style={{ padding: '26px 28px', borderRight: '1px solid var(--border-subtle)', background: 'var(--surface-sunken)' }}>
+        <div className="agent-identity" style={{ padding: '26px 28px', borderRight: '1px solid var(--border-subtle)', background: 'var(--surface-sunken)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 13 }}>
             <span style={{ display: 'inline-flex', width: 46, height: 46, alignItems: 'center', justifyContent: 'center', borderRadius: 'var(--radius-md)', background: 'var(--surface-card)', border: '1px solid var(--border-subtle)' }}>
               <PixelMark size={26} awake={a.awake} />
@@ -249,10 +249,13 @@ function CTA() {
         <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-md)', marginTop: 14, lineHeight: 1.55 }}>
           We set up a working AIBOS for your business — POS, operations, payroll, site — and let your Special Agent run a real day. If it doesn't earn its keep, you owe nothing.
         </p>
-        <div style={{ marginTop: 28, display: 'flex', gap: 12, justifyContent: 'center' }}>
+        <div style={{ marginTop: 28, display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
           <a href={BOOK_HREF} style={{ textDecoration: 'none' }}><Button size="lg">Book a walkthrough</Button></a>
           <a href="#agents" style={{ textDecoration: 'none' }}><Button size="lg" variant="ghost" iconRight={<Icon name="arrow-right" size={18} />}>See the agents again</Button></a>
         </div>
+        <p style={{ marginTop: 18, fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--text-tertiary)', letterSpacing: '.03em' }}>
+          or email <a href={BOOK_HREF} style={{ color: 'var(--text-secondary)' }}>mlcamero131@gmail.com</a>
+        </p>
       </div>
     </section>
   );
